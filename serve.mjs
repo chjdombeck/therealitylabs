@@ -28,7 +28,14 @@ const server = http.createServer((req, res) => {
   let urlPath = decodeURIComponent(req.url.split('?')[0]);
   if (urlPath === '/') urlPath = '/index.html';
 
-  const filePath = path.join(__dirname, urlPath);
+  let filePath = path.join(__dirname, urlPath);
+
+  // Support clean URLs: /apply → /apply/index.html
+  if (!path.extname(filePath)) {
+    const dirIndex = path.join(filePath, 'index.html');
+    if (fs.existsSync(dirIndex)) filePath = dirIndex;
+  }
+
   const ext = path.extname(filePath).toLowerCase();
   const contentType = mimeTypes[ext] || 'application/octet-stream';
 
