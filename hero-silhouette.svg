@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 860" width="680" height="860">
+  <defs>
+
+    <!-- Main vapor warp — right side dissolves more -->
+    <filter id="vapor-main" x="-25%" y="-20%" width="160%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="6" seed="11" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <feGaussianBlur in="displaced" stdDeviation="4" result="blurred"/>
+    </filter>
+
+    <!-- Gold ghost — offset right, heavy dissolve -->
+    <filter id="ghost-gold" x="-40%" y="-30%" width="200%" height="170%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="5" seed="5" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <feGaussianBlur in="displaced" stdDeviation="20" result="blurred"/>
+      <feColorMatrix in="blurred" type="matrix"
+        values="1.6  0    0    0    0.04
+                0.7  0.1  0    0    0
+                0    0    0    0    0
+                0    0    0    0.5  0"/>
+    </filter>
+
+    <!-- Cool ghost — offset left, heavy dissolve -->
+    <filter id="ghost-cool" x="-40%" y="-30%" width="200%" height="170%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.019 0.014" numOctaves="5" seed="23" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="80" xChannelSelector="G" yChannelSelector="R" result="displaced"/>
+      <feGaussianBlur in="displaced" stdDeviation="24" result="blurred"/>
+      <feColorMatrix in="blurred" type="matrix"
+        values="0    0    0.1  0    0.02
+                0.1  0.2  0.3  0    0.04
+                0.3  0.4  0.9  0    0.08
+                0    0    0    0.38 0"/>
+    </filter>
+
+    <!-- Wisp trails filter -->
+    <filter id="wisp" x="-60%" y="-40%" width="220%" height="200%">
+      <feTurbulence type="turbulence" baseFrequency="0.008 0.04" numOctaves="4" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="110" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <feGaussianBlur in="displaced" stdDeviation="28" result="blurred"/>
+      <feColorMatrix in="blurred" type="matrix"
+        values="1.2  0    0    0    0
+                0.5  0    0    0    0
+                0    0    0    0    0
+                0    0    0    0.25 0"/>
+    </filter>
+
+    <!-- Bottom fade -->
+    <linearGradient id="bottom-fade" x1="0" y1="0.55" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="bottom-mask">
+      <rect width="680" height="860" fill="url(#bottom-fade)"/>
+    </mask>
+
+    <!-- Right-side dissolve mask — makes right edge fade to nothing -->
+    <linearGradient id="right-fade" x1="0.45" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="right-mask">
+      <rect width="680" height="860" fill="url(#right-fade)"/>
+    </mask>
+
+  </defs>
+
+  <!-- Male profile silhouette — facing left (3/4 angle), clean masculine proportions -->
+  <!-- Head: pronounced jaw, flat top, strong neck; Shoulders: broad -->
+  <defs>
+    <path id="figure"
+      d="
+        M 340 72
+        C 362 70, 390 78, 408 98
+        C 428 120, 434 150, 432 180
+        C 430 206, 422 226, 418 248
+        C 414 268, 418 282, 424 298
+        C 432 318, 442 330, 444 350
+        C 446 372, 436 390, 420 406
+        C 406 420, 390 430, 388 452
+        C 386 470, 396 488, 414 510
+        C 438 540, 490 568, 526 610
+        C 556 646, 568 696, 572 760
+        L 572 860
+        L 108 860
+        L 108 760
+        C 112 696, 124 646, 154 610
+        C 190 568, 242 540, 266 510
+        C 284 488, 294 470, 292 452
+        C 290 430, 274 420, 260 406
+        C 244 390, 234 372, 236 350
+        C 238 330, 248 318, 256 298
+        C 262 282, 266 268, 262 248
+        C 258 226, 250 206, 248 180
+        C 246 150, 252 120, 272 98
+        C 290 78, 318 70, 340 72
+        Z
+      "
+    />
+  </defs>
+
+  <!-- === WISP TRAILS — gold, far right === -->
+  <g transform="translate(48, -16)" opacity="0.7" mask="url(#bottom-mask)">
+    <use href="#figure" fill="#E39703" filter="url(#wisp)"/>
+  </g>
+
+  <!-- === GHOST GOLD — offset right === -->
+  <g transform="translate(28, -10)" opacity="0.9" mask="url(#bottom-mask)">
+    <use href="#figure" fill="#E39703" filter="url(#ghost-gold)"/>
+  </g>
+
+  <!-- === GHOST COOL — offset left === -->
+  <g transform="translate(-22, 8)" opacity="0.85" mask="url(#bottom-mask)">
+    <use href="#figure" fill="#7ab8d4" filter="url(#ghost-cool)"/>
+  </g>
+
+  <!-- === MAIN SILHOUETTE — dark core === -->
+  <g mask="url(#bottom-mask)">
+    <use href="#figure" fill="#080808" filter="url(#vapor-main)"/>
+  </g>
+
+  <!-- Very subtle warm inner glow at head -->
+  <ellipse cx="340" cy="190" rx="88" ry="110"
+    fill="#E39703" opacity="0.04"
+    filter="url(#ghost-gold)"
+  />
+
+</svg>
