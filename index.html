@@ -1258,11 +1258,35 @@
 
     @media (max-width: 560px) {
       .beliefs-inner { grid-template-columns: 1fr; }
-      .hero-right { height: 340px; }
+      .hero-right { height: 300px; }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { width: 100%; justify-content: center; }
       .about-stats { gap: 20px; }
       .testi-card { padding: 28px 20px; }
+
+      /* Hero iceberg labels */
+      .iceberg-label.iceberg-above { top: 8%; right: 12px; }
+      .iceberg-label.iceberg-below { bottom: 8%; right: 12px; }
+      .iceberg-pct { font-size: 22px; }
+      .iceberg-label { max-width: 120px; }
+      .iceberg-name { font-size: 9px; letter-spacing: 0.08em; }
+      .iceberg-desc { font-size: 9px; }
+
+      /* About — smaller image on mobile */
+      .about-img-wrap { aspect-ratio: 3/2; }
+
+      /* Tighter section padding */
+      .about-section { padding: 56px 20px; }
+      .testi-section { padding: 56px 20px; }
+      .journey { padding: 56px 20px; }
+      .quote-break { padding: 56px 20px; }
+      .cta-section { padding: 72px 20px; }
+
+      /* Intro */
+      .intro-split { padding: 56px 20px; }
+
+      /* Layers section */
+      .layers-section { padding: 56px 20px; }
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
