@@ -1272,8 +1272,53 @@
       .iceberg-name { font-size: 9px; letter-spacing: 0.08em; }
       .iceberg-desc { font-size: 9px; }
 
-      /* About — smaller image on mobile */
-      .about-img-wrap { aspect-ratio: 3/2; }
+      /* About — full-width tall portrait image */
+      .about-body { grid-template-columns: 1fr; gap: 0; }
+      .about-img-wrap { aspect-ratio: 3/4; width: 100%; border-radius: 8px 8px 0 0; }
+      .about-bio { display: none; }
+
+      /* Story scroll strip */
+      .story-scroll-wrap {
+        margin-top: 0;
+        position: relative;
+      }
+      .story-scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 20px 24px;
+        scrollbar-width: none;
+        background: var(--s2);
+        border: 1px solid var(--w08);
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+      }
+      .story-scroll::-webkit-scrollbar { display: none; }
+      .story-card {
+        flex: 0 0 78vw;
+        scroll-snap-align: start;
+        background: var(--s3);
+        border: 1px solid var(--w08);
+        border-radius: 8px;
+        padding: 20px;
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--w60);
+      }
+      .story-card em { color: var(--white); font-style: italic; }
+      .story-scroll-hint {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--w25);
+        padding: 10px 20px 0;
+      }
+      .story-scroll-hint svg { opacity: 0.4; }
 
       /* Tighter section padding */
       .about-section { padding: 56px 20px; }
@@ -1574,6 +1619,23 @@
           <p>That's what I share now — helping entrepreneurs shift what's happening internally so their results finally reflect what they already know they're capable of.</p>
         </div>
       </div>
+
+      <!-- Mobile-only horizontal story scroll -->
+      <div class="story-scroll-wrap" id="storyScrollWrap" style="display:none;">
+        <div class="story-scroll-hint">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Swipe to read
+        </div>
+        <div class="story-scroll">
+          <div class="story-card">I went 8 months without signing a single client. This was back in 2023/2024 while building my marketing service — eight months of outreach, consistency, and trying everything I thought would work. Nothing.</div>
+          <div class="story-card">It didn't make any sense. I knew I was capable. But no matter what I did, the results just weren't lining up. It felt like I was trying to sprint while knee-deep in quicksand.</div>
+          <div class="story-card">That's when I started working with a coach focused on the subconscious mind and internal reprogramming. We didn't overhaul my business — we started working on my inner environment. My identity. My beliefs. The subconscious patterns I was operating from.</div>
+          <div class="story-card">At first, nothing dramatic happened. And then suddenly — I had a two-week period where I signed 4 clients. Within about a month and a half, I made over $10K.</div>
+          <div class="story-card">Externally, almost nothing had changed. But internally, something shifted. That was the moment I experienced it firsthand: <em>your inner reality reflects in your outer reality.</em> And once you see it, you can't unsee it.</div>
+          <div class="story-card">That's what I share now — helping entrepreneurs shift what's happening internally so their results finally reflect what they already know they're capable of.</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1998,6 +2060,21 @@
     });
     ro.observe(container);
   })();
+  </script>
+  <script>
+    // Show story scroll only on mobile
+    (function() {
+      var wrap = document.getElementById('storyScrollWrap');
+      function check() {
+        if (window.innerWidth <= 560) {
+          wrap.style.display = 'block';
+        } else {
+          wrap.style.display = 'none';
+        }
+      }
+      check();
+      window.addEventListener('resize', check);
+    })();
   </script>
 </body>
 </html>
