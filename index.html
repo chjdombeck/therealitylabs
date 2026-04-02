@@ -1261,31 +1261,30 @@
       .about-img-wrap { aspect-ratio: 1/1; }
       .about-stats { gap: 24px; flex-wrap: wrap; }
 
-      /* TESTIMONIALS — manual swipe on mobile */
+      /* TESTIMONIALS — mobile swipe */
       .testi-section { padding: 72px 0; }
       .testi-inner { padding: 0 24px; }
-      .testi-marquee-track {
-        animation: none;
+      .testi-marquee-wrap { overflow: visible; }
+      .testi-marquee-wrap::before, .testi-marquee-wrap::after { display: none; }
+      .testi-marquee-track { display: none; }
+      .testi-mobile-scroll {
+        display: flex;
+        gap: 12px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         padding: 0 20px 16px;
-        gap: 12px;
         scrollbar-width: none;
         align-items: start;
       }
-      .testi-marquee-track::-webkit-scrollbar { display: none; }
-      .testi-card {
+      .testi-mobile-scroll::-webkit-scrollbar { display: none; }
+      .testi-mobile-scroll .testi-card {
         width: 82vw;
         flex-shrink: 0;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         padding: 24px 20px;
       }
-      /* Hide duplicate set on mobile to avoid repeats */
-      .testi-marquee-track .testi-card:nth-child(n+5) { display: none; }
       .testi-text { font-size: 13px; line-height: 1.8; margin-bottom: 20px; }
-      .testi-marquee-wrap::before { width: 20px; }
-      .testi-marquee-wrap::after  { width: 20px; }
 
       /* QUOTE */
       .quote-break { padding: 72px 24px; }
@@ -2153,27 +2152,39 @@
       window.addEventListener('resize', check);
     })();
 
-    // Testimonial dot indicators on mobile
+    // Testimonial mobile swipe carousel
     (function() {
       if (window.innerWidth > 960) return;
-      var track = document.querySelector('.testi-marquee-track');
-      var cards = track.querySelectorAll('.testi-card:not([style*="display: none"])');
-      var visibleCards = Array.from(cards).filter(function(c) {
-        return window.getComputedStyle(c).display !== 'none';
+      var wrap = document.querySelector('.testi-marquee-wrap');
+      var testimonials = [
+        { text: '"Had a life changing call with Carter Dombeck. He helped me understand an identity that I\'ve had within myself that\'s been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."', name: 'Juan F.', role: 'Sales Professional' },
+        { text: '"Before working together, I felt stuck. Even though I had built a 7-figure business, I lacked clarity on what was next and felt trapped in a constant hustle mentality. Over the past four months of working with Carter, I have let go of old patterns and stepped into a new direction. Now, I\'m creating content around consciousness and mental health and building a business rooted in a deeper purpose."', name: 'Justin H.', role: '7-Figure Entrepreneur' },
+        { text: '"Your videos have really helped me grow in my musical journey. It\'s great."', name: 'Oriana C.', role: 'Musician' },
+        { text: '"Carter\'s content has had a real impact on me. You can tell he genuinely cares about helping people break through what\'s holding them back. His consistency and work ethic are on another level, and it shows in everything he puts out. He shows up every day with purpose and actually lives what he talks about. That kind of discipline and intention is rare, and it\'s genuinely inspiring to watch."', name: 'Easton G.', role: 'Digital Entrepreneur' }
+      ];
+
+      var scroll = document.createElement('div');
+      scroll.className = 'testi-mobile-scroll';
+      testimonials.forEach(function(t) {
+        var card = document.createElement('div');
+        card.className = 'testi-card';
+        card.innerHTML = '<p class="testi-text">' + t.text + '</p><div class="testi-name">' + t.name + '</div><div class="testi-role">' + t.role + '</div>';
+        scroll.appendChild(card);
       });
-      var count = Math.min(visibleCards.length, 4);
-      if (count < 2) return;
+      wrap.appendChild(scroll);
+
+      // Dot indicators
       var dots = document.createElement('div');
       dots.style.cssText = 'display:flex;justify-content:center;gap:6px;margin-top:16px;';
-      for (var i = 0; i < count; i++) {
+      testimonials.forEach(function(_, i) {
         var d = document.createElement('span');
-        d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.2s;';
+        d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:' + (i === 0 ? 'var(--gold)' : 'rgba(255,255,255,0.2)') + ';transition:background 0.2s;display:inline-block;';
         dots.appendChild(d);
-      }
-      dots.children[0].style.background = 'var(--gold)';
-      track.parentElement.appendChild(dots);
-      track.addEventListener('scroll', function() {
-        var idx = Math.round(track.scrollLeft / (track.scrollWidth / count));
+      });
+      wrap.appendChild(dots);
+
+      scroll.addEventListener('scroll', function() {
+        var idx = Math.round(scroll.scrollLeft / scroll.offsetWidth);
         Array.from(dots.children).forEach(function(d, i) {
           d.style.background = i === idx ? 'var(--gold)' : 'rgba(255,255,255,0.2)';
         });
