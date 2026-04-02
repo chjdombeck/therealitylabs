@@ -1261,10 +1261,31 @@
       .about-img-wrap { aspect-ratio: 1/1; }
       .about-stats { gap: 24px; flex-wrap: wrap; }
 
-      /* TESTIMONIALS */
+      /* TESTIMONIALS — manual swipe on mobile */
       .testi-section { padding: 72px 0; }
       .testi-inner { padding: 0 24px; }
-      .testi-card { width: 300px; padding: 28px 24px; }
+      .testi-marquee-track {
+        animation: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 20px 16px;
+        gap: 12px;
+        scrollbar-width: none;
+        align-items: start;
+      }
+      .testi-marquee-track::-webkit-scrollbar { display: none; }
+      .testi-card {
+        width: 82vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        padding: 24px 20px;
+      }
+      /* Hide duplicate set on mobile to avoid repeats */
+      .testi-marquee-track .testi-card:nth-child(n+5) { display: none; }
+      .testi-text { font-size: 13px; line-height: 1.8; margin-bottom: 20px; }
+      .testi-marquee-wrap::before { width: 20px; }
+      .testi-marquee-wrap::after  { width: 20px; }
 
       /* QUOTE */
       .quote-break { padding: 72px 24px; }
@@ -2130,6 +2151,33 @@
       }
       check();
       window.addEventListener('resize', check);
+    })();
+
+    // Testimonial dot indicators on mobile
+    (function() {
+      if (window.innerWidth > 960) return;
+      var track = document.querySelector('.testi-marquee-track');
+      var cards = track.querySelectorAll('.testi-card:not([style*="display: none"])');
+      var visibleCards = Array.from(cards).filter(function(c) {
+        return window.getComputedStyle(c).display !== 'none';
+      });
+      var count = Math.min(visibleCards.length, 4);
+      if (count < 2) return;
+      var dots = document.createElement('div');
+      dots.style.cssText = 'display:flex;justify-content:center;gap:6px;margin-top:16px;';
+      for (var i = 0; i < count; i++) {
+        var d = document.createElement('span');
+        d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.2s;';
+        dots.appendChild(d);
+      }
+      dots.children[0].style.background = 'var(--gold)';
+      track.parentElement.appendChild(dots);
+      track.addEventListener('scroll', function() {
+        var idx = Math.round(track.scrollLeft / (track.scrollWidth / count));
+        Array.from(dots.children).forEach(function(d, i) {
+          d.style.background = i === idx ? 'var(--gold)' : 'rgba(255,255,255,0.2)';
+        });
+      });
     })();
   </script>
 </body>
