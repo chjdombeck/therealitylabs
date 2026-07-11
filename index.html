@@ -1450,7 +1450,7 @@
 
     <div class="hero-right r d1">
       <div class="hero-img-wrap">
-        <img src="simon-lee-N4RYO1198KM-unsplash.jpg" alt="Iceberg — conscious vs subconscious mind" class="iceberg-img" fetchpriority="high" width="900" height="1200" />
+        <img src="simon-lee-N4RYO1198KM-unsplash.jpg" alt="Iceberg — conscious vs subconscious mind" class="iceberg-img" fetchpriority="high" />
         <div class="iceberg-overlay"></div>
 
         <!-- Above waterline label -->
@@ -1711,7 +1711,7 @@
       <!-- Photo + Bio side by side -->
       <div class="about-body">
         <div class="about-img-wrap r">
-          <img src="jacket profpic.JPG" alt="Carter Dombeck" loading="lazy" width="600" height="800" />
+          <img src="jacket profpic.JPG" alt="Carter Dombeck" loading="lazy" />
           <div class="about-img-accent">Reality Labs Coaching</div>
         </div>
         <div class="about-bio r d1">
@@ -1939,9 +1939,9 @@
     });
   </script>
 
-  <!-- ══ UNICORN STUDIO — VITRUVIAN MAN ══ -->
+  <!-- ══ UNICORN STUDIO — VITRUVIAN MAN (desktop only) ══ -->
   <script>
-  !function(){
+  if (window.innerWidth > 960) !function(){
     if(!window.UnicornStudio){
       window.UnicornStudio={isInitialized:!1};
       var i=document.createElement("script");
@@ -1968,9 +1968,10 @@
   setTimeout(hideUnicornBadge, 5000);
   </script>
 
-  <!-- ══ PHASE 2 FLOW FIELD ══ -->
+  <!-- ══ PHASE 2 FLOW FIELD (desktop only) ══ -->
   <script>
   (function() {
+    if (window.innerWidth <= 960) return;
     const container = document.getElementById('phase2-img');
     const canvas = document.getElementById('phase2-flow');
     if (!container || !canvas) return;
@@ -2056,9 +2057,10 @@
   })();
   </script>
 
-  <!-- ══ ENTROPY CANVAS ══ -->
+  <!-- ══ ENTROPY CANVAS (desktop only) ══ -->
   <script>
   (function() {
+    if (window.innerWidth <= 960) return;
     const canvas = document.getElementById('entropy-canvas');
     if (!canvas) return;
 
@@ -2200,8 +2202,8 @@
   </script>
 
   <script>
-  // ─── Phase 3: Three.js Dotted Wave — loaded after page render ───
-  window.addEventListener('load', function() {
+  // ─── Phase 3: Three.js Dotted Wave — desktop only, loaded after page render ───
+  if (window.innerWidth > 960) window.addEventListener('load', function() {
     var s = document.createElement('script');
     s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
     s.onload = function() { initPhase3(); };
@@ -2320,7 +2322,7 @@
         var card = document.createElement('div');
         card.className = 'testi-card';
         var byline = t.avatar
-          ? '<div style="display:flex;align-items:center;gap:12px;margin-top:4px;"><img src="' + t.avatar + '" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid rgba(227,151,3,0.28);flex-shrink:0;" /><div><div class="testi-name">' + t.name + '</div><div class="testi-role">' + t.role + '</div></div></div>'
+          ? '<div style="display:flex;align-items:center;gap:12px;margin-top:4px;"><img src="' + t.avatar + '" alt="' + t.name + '" width="46" height="46" loading="lazy" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid rgba(227,151,3,0.28);flex-shrink:0;" /><div><div class="testi-name">' + t.name + '</div><div class="testi-role">' + t.role + '</div></div></div>'
           : '<div class="testi-name">' + t.name + '</div><div class="testi-role">' + t.role + '</div>';
         card.innerHTML = '<p class="testi-text">' + t.text + '</p>' + byline;
         scroll.appendChild(card);
