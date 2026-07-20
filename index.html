@@ -99,7 +99,7 @@
       grid-column: 2;
     }
 
-    .nav-logo { height: 78px; display: block; grid-column: 1; }
+    .nav-logo { height: 78px; width: auto; display: block; grid-column: 1; }
     .nav-cta { display: flex; justify-content: flex-end; grid-column: 3; }
 
     .nav-links {
@@ -730,6 +730,9 @@
     }
     .service-row:hover .service-img img { transform: scale(1.03); filter: grayscale(10%) brightness(0.85); }
 
+    .phase-mobile-img { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    @media (max-width: 960px) { .phase-mobile-img { display: block; } }
+
     .service-img-overlay {
       position: absolute;
       inset: 0;
@@ -1122,7 +1125,7 @@
       padding-bottom: 28px;
       border-bottom: 1px solid var(--w05);
     }
-    .footer-logo { height: 120px; opacity: 0.85; filter: drop-shadow(0 0 24px rgba(227,151,3,0.2)); }
+    .footer-logo { height: 120px; width: auto; opacity: 0.85; filter: drop-shadow(0 0 24px rgba(227,151,3,0.2)); }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a {
       font-size: 11px;
@@ -1229,7 +1232,7 @@
         justify-content: space-between;
         align-items: center;
       }
-      .nav-logo { height: 64px; }
+      .nav-logo { height: 64px; width: auto; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
@@ -1622,6 +1625,7 @@
     <div class="service-row">
       <div class="service-row-inner">
         <div class="service-img" style="background:#080808; display:flex; align-items:center; justify-content:center;">
+          <img src="trl1.png" alt="Phase 1 — Identify" class="phase-mobile-img" loading="lazy">
           <canvas id="entropy-canvas" style="display:block;"></canvas>
           <div class="service-img-overlay"></div>
           <div class="service-num-tag">01 — Identify</div>
@@ -1653,6 +1657,7 @@
           </div>
         </div>
         <div class="service-img" id="phase2-img" style="background:#050505; overflow:hidden;">
+          <img src="trl2.png" alt="Phase 2 — Reprogram" class="phase-mobile-img" loading="lazy">
           <canvas id="phase2-flow" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
           <div class="service-img-overlay" style="z-index:2;"></div>
           <div class="service-num-tag" style="z-index:3;">02 — Reprogram</div>
@@ -1664,6 +1669,7 @@
     <div class="service-row">
       <div class="service-row-inner">
         <div class="service-img" id="phase3-img" style="background:#050505; overflow:hidden;">
+          <img src="trl3.png" alt="Phase 3 — Align" class="phase-mobile-img" loading="lazy">
           <canvas id="phase3-dots" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
           <div class="service-img-overlay" style="z-index:2;"></div>
           <div class="service-num-tag" style="z-index:3;">03 — Align</div>
