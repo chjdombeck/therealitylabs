@@ -124,9 +124,11 @@
     .apply-eyebrow::before {
       content: '';
       display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--gold);
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
     .apply-headline {
@@ -198,6 +200,88 @@
       margin-bottom: 64px;
     }
 
+
+    /* ─── PROGRAM SECTION ─── */
+    .program-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .program-title span { color: var(--gold); }
+    .program-intro {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--w60);
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+    .program-included-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .program-included {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+    .program-card {
+      position: relative;
+      background: var(--s2);
+      border: 1px solid var(--w08);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(227,151,3,0.06) inset;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease;
+    }
+    .program-card:hover { transform: translateY(-3px); border-color: rgba(227,151,3,0.35); }
+    .program-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 24px;
+      margin-bottom: 14px;
+    }
+    .program-card-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+    }
+    .program-beta {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .program-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .program-card-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--w60);
+    }
+
     /* ─── CALENDLY SECTION ─── */
     .calendly-wrap {
       width: 100%;
@@ -244,6 +328,7 @@
       nav { padding: 10px 20px; }
       .nav-logo { height: 56px; }
       .page-wrap { padding: 110px 20px 60px; }
+      .program-included { grid-template-columns: 1fr; }
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -253,7 +338,7 @@
   <!-- NAV -->
   <nav>
     <a href="index.html">
-      <img src="../LD Logo main.png" alt="Reality Labs Coaching" class="nav-logo" />
+      <img src="../TRLLOGO.png" alt="The Reality Labs" class="nav-logo" />
     </a>
   </nav>
 
@@ -268,6 +353,37 @@
     <div class="video-wrap">
       <div style="position:relative;width:100%;padding-top:56.25%;">
         <iframe src="https://fast.wistia.net/embed/iframe/05gqr0hvqh?seo=true&videoFoam=true" title="Reality Labs Coaching Video" allow="autoplay; fullscreen" allowfullscreen frameborder="0" scrolling="no" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 16-WEEK PROGRAM -->
+    <div class="section-label-sm">The program</div>
+    <h2 class="program-title">The Reality Labs <span>16-Week Intensive</span></h2>
+    <p class="program-intro">Join The Reality Labs Intensive coaching program, built for entrepreneurs who feel invisibly blocked from their next level. Work with Carter 1-1 and go straight to the root cause of your block through a 16 week journey.</p>
+
+    <div class="program-included-label">What's included</div>
+    <div class="program-included">
+      <div class="program-card">
+        <div class="program-card-top"><span class="program-card-num">01</span></div>
+        <div class="program-card-title">16 Weeks</div>
+        <p class="program-card-desc">A focused 16-week arc: enough time to uncover the pattern, rewire the root, and let a new identity show up in your results.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-card-top"><span class="program-card-num">02</span></div>
+        <div class="program-card-title">Coaching Sessions</div>
+        <p class="program-card-desc">1:1 sessions with me to dissolve the subconscious blocks driving your results. Every session is built around your identity and your next level.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-card-top"><span class="program-card-num">03</span><span class="program-beta">Beta</span></div>
+        <div class="program-card-title">Custom Reality Labs Dashboard</div>
+        <p class="program-card-desc">A private dashboard with an AI assistant built in, to support your work between sessions.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-card-top"><span class="program-card-num">04</span></div>
+        <div class="program-card-title">24/7 Communication</div>
+        <p class="program-card-desc">Direct message access to me in a private Slack channel, anytime you need support.</p>
       </div>
     </div>
 
