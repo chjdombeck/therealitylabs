@@ -99,7 +99,7 @@
       grid-column: 2;
     }
 
-    .nav-logo { height: 78px; width: auto; display: block; grid-column: 1; }
+    .nav-logo { height: 70px; width: auto; display: block; grid-column: 1; }
     .nav-cta { display: flex; justify-content: flex-end; grid-column: 3; }
 
     .nav-links {
@@ -265,8 +265,8 @@
     }
     .hero-img-tag::before {
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
@@ -286,8 +286,8 @@
     .hero-eyebrow::before {
       content: '';
       display: block;
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
@@ -367,8 +367,8 @@
     }
     .hero-img-tag::before {
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
@@ -531,7 +531,7 @@
       gap: 12px;
       margin-bottom: 36px;
     }
-    .intro-left-label::before { content:''; display:block; width:8px; height:8px; border:1px solid var(--gold); border-radius:50%; background:transparent; flex-shrink:0; }
+    .intro-left-label::before { content:''; display:block; width: 10px; height: 10px; border:1px solid var(--gold); border-radius:50%; background:transparent; flex-shrink:0; }
 
     .intro-big {
       font-family: 'Space Grotesk', sans-serif;
@@ -653,7 +653,7 @@
       gap: 12px;
       margin-bottom: 16px;
     }
-    .section-label::before { content:''; display:block; width:8px; height:8px; border:1px solid var(--gold); border-radius:50%; background:transparent; flex-shrink:0; }
+    .section-label::before { content:''; display:block; width: 10px; height: 10px; border:1px solid var(--gold); border-radius:50%; background:transparent; flex-shrink:0; }
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
@@ -689,7 +689,7 @@
       color: var(--gold);
       margin-bottom: 24px;
     }
-    .journey-bar { width: 8px; height: 8px; border: 1px solid var(--gold); border-radius: 50%; margin-bottom: 20px; }
+    .journey-bar { width: 10px; height: 10px; border: 1px solid var(--gold); border-radius: 50%; margin-bottom: 20px; }
     .journey-card-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 19px;
@@ -870,7 +870,7 @@
       margin-bottom: 20px;
       color: var(--w85);
     }
-    .belief-bar { width: 8px; height: 8px; border: 1px solid var(--gold); border-radius: 50%; }
+    .belief-bar { width: 10px; height: 10px; border: 1px solid var(--gold); border-radius: 50%; }
 
     /* ─── ABOUT ─── */
     .about-section {
@@ -959,10 +959,9 @@
     }
     .about-bio p + p { margin-top: 16px; }
     .about-divider {
-      width: 8px;
-      height: 8px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
       opacity: 0.6;
     }
     .about-stats {
@@ -1148,7 +1147,7 @@
       padding-bottom: 28px;
       border-bottom: 1px solid var(--w05);
     }
-    .footer-logo { height: 120px; width: auto; opacity: 0.85; filter: drop-shadow(0 0 24px rgba(227,151,3,0.2)); }
+    .footer-logo { height: 60px; width: auto; opacity: 0.85; filter: drop-shadow(0 0 24px rgba(227,151,3,0.2)); }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a {
       font-size: 11px;
@@ -1255,7 +1254,7 @@
         justify-content: space-between;
         align-items: center;
       }
-      .nav-logo { height: 64px; width: auto; }
+      .nav-logo { height: 58px; width: auto; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
@@ -1442,7 +1441,7 @@
 
   <!-- ══ NAV ══ -->
   <nav>
-    <img src="TRLLOGO.png" alt="The Reality Labs" class="nav-logo" width="196" height="78" />
+    <img src="TRLLOGO.png" alt="The Reality Labs" class="nav-logo" width="176" height="70" />
     <div class="nav-links">
       <a href="#process">Process</a>
       <a href="#about">About</a>
@@ -1633,11 +1632,11 @@
   <!-- ══ BIG QUOTE ══ -->
   <div class="quote-break">
     <div class="quote-break-bg"></div>
-    <div style="width:8px; height:8px; border:1px solid var(--gold); border-radius:50%; margin:0 auto 64px;" class="r"></div>
+    <div style="width:36px; height:1px; background:var(--gold); margin:0 auto 64px;" class="r"></div>
     <p class="big-quote r d1">
       "Reality creation is an <span class="gold">inside job."</span>
     </p>
-    <div style="width:8px; height:8px; border:1px solid var(--gold); border-radius:50%; margin:64px auto 0;" class="r d2"></div>
+    <div style="width:36px; height:1px; background:var(--gold); margin:64px auto 0;" class="r d2"></div>
   </div>
 
   <!-- ══ SERVICE ROWS ══ -->
@@ -1728,6 +1727,9 @@
           </a>
           <a href="https://www.instagram.com/carterdombeck/" target="_blank" rel="noopener" aria-label="Instagram" style="color:#fff; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='#fff'">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="https://go.therealitylabs.com/" target="_blank" rel="noopener" aria-label="Newsletter" style="color:#fff; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='#fff'">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
         </div>
         <h2 class="about-title r d1">Reality creation<br/>from the inside out.</h2>
@@ -1909,9 +1911,9 @@
   <!-- ══ FOOTER ══ -->
   <footer>
     <div class="footer-top">
-      <img src="TRLLOGO.png" alt="The Reality Labs" class="footer-logo" width="302" height="120" loading="lazy" />
+      <img src="TRLLOGO.png" alt="The Reality Labs" class="footer-logo" width="151" height="60" loading="lazy" />
       <div class="footer-social-center" style="position:absolute; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:16px;">
-        <a href="https://3day.therealitylabs.com/" style="font-size:14px; color:#fff; letter-spacing:0.06em; text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='#fff'">Free 3-Day Mini Course</a>
+        <a href="https://metaphors.therealitylabs.com/" target="_blank" rel="noopener" style="font-size:14px; color:#fff; letter-spacing:0.06em; text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='#fff'">Download New Ebook: Metaphors (It's Free!)</a>
         <div style="display:flex; gap:20px; align-items:center;">
           <a href="https://www.youtube.com/@CarterDombeck" target="_blank" rel="noopener" aria-label="YouTube" style="color:#fff; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='#fff'">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
