@@ -1973,6 +1973,8 @@
       window.UnicornStudio={isInitialized:!1};
       var i=document.createElement("script");
       i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js";
+      i.integrity="sha384-sooUf0qsivdP2Pfz8I8FBQd3YvIHbxyiyQMB3n9MMXiNInTgaU+jNRe5eBQwKscg";
+      i.crossOrigin="anonymous";
       i.onload=function(){
         window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)
       };
