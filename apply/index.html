@@ -281,6 +281,85 @@
       color: var(--w60);
     }
 
+    /* ─── RESULTS / TESTIMONIALS ─── */
+    .testi-slider { position: relative; margin-bottom: 80px; }
+    .testi-viewport { overflow: hidden; border-radius: 12px; }
+    .testi-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .testi-card {
+      position: relative;
+      flex: 0 0 100%;
+      background: var(--s2);
+      border: 1px solid var(--w08);
+      border-radius: 12px;
+      padding: 44px 48px 40px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(227,151,3,0.06) inset;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 48px;
+      width: 32px; height: 2px;
+      background: var(--gold);
+    }
+    .testi-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--w85);
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+    .testi-byline { display: flex; align-items: center; gap: 14px; }
+    .testi-byline img {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--gold-line);
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; }
+    .testi-role { font-size: 12px; color: var(--w40); margin-top: 3px; letter-spacing: 0.06em; }
+    .testi-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+    .testi-dots { display: flex; gap: 8px; }
+    .testi-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--w25);
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.2s ease;
+    }
+    .testi-dot:hover { opacity: 0.8; transform: scale(1.25); }
+    .testi-dot:focus-visible { outline: none; box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--gold); }
+    .testi-dot.active { background: var(--gold); transform: scale(1.25); }
+    .testi-arrows { display: flex; gap: 10px; }
+    .testi-arrow {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--w12);
+      background: var(--s2);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease, color 0.2s ease;
+    }
+    .testi-arrow:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .testi-arrow:active { transform: scale(0.94); }
+    .testi-arrow:focus-visible { outline: none; box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--gold); }
+
     /* ─── CALENDLY SECTION ─── */
     .calendly-wrap {
       width: 100%;
@@ -328,6 +407,9 @@
       .nav-logo { height: 50px; }
       .page-wrap { padding: 110px 20px 60px; }
       .program-included { grid-template-columns: 1fr; }
+      .testi-card { padding: 32px 24px 28px; }
+      .testi-card::before { left: 24px; }
+      .testi-text { font-size: 15px; line-height: 1.75; margin-bottom: 24px; }
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -385,6 +467,99 @@
         <p class="program-card-desc">Direct message access to me in a private Slack channel, anytime you need support.</p>
       </div>
     </div>
+
+    <div class="divider"></div>
+
+    <!-- RESULTS / TESTIMONIALS -->
+    <div class="section-label-sm">Results</div>
+    <h2 class="program-title" style="margin-bottom:32px;">Identity shifts. <span>Real outcomes.</span></h2>
+
+    <div class="testi-slider" id="testiSlider">
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <p class="testi-text">"Before working together, I felt stuck. Even though I had built a 7-figure business, I lacked clarity on what was next and felt trapped in a constant hustle mentality. Over the past four months of working with Carter, I have let go of old patterns and stepped into a new direction. Now, I'm creating content around consciousness and mental health and building a business rooted in a deeper purpose."</p>
+            <div class="testi-byline">
+              <img src="../Client results/justinhpp.png" alt="Justin H." width="48" height="48" />
+              <div><div class="testi-name">Justin H.</div><div class="testi-role">7-Figure Entrepreneur</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p class="testi-text">"Had a life changing call with Carter Dombeck. He helped me understand an identity that I've had within myself that's been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."</p>
+            <div class="testi-byline">
+              <img src="../Client results/juanpp.jpg" alt="Juan F." width="48" height="48" />
+              <div><div class="testi-name">Juan F.</div><div class="testi-role">Sales Professional</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p class="testi-text">"Your videos have really helped me grow in my musical journey. It's great."</p>
+            <div class="testi-byline">
+              <img src="../Client results/oripp.jpg" alt="Oriana C." width="48" height="48" />
+              <div><div class="testi-name">Oriana C.</div><div class="testi-role">Musician</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p class="testi-text">"Carter's content has had a real impact on me. You can tell he genuinely cares about helping people break through what's holding them back. His consistency and work ethic are on another level, and it shows in everything he puts out. He shows up every day with purpose and actually lives what he talks about. That kind of discipline and intention is rare, and it's genuinely inspiring to watch."</p>
+            <div class="testi-byline">
+              <img src="../Client results/eastonpp.jpg" alt="Easton G." width="48" height="48" />
+              <div><div class="testi-name">Easton G.</div><div class="testi-role">Digital Entrepreneur</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p class="testi-text">"Carter is one of the most genuine, intentional people I've had the pleasure of knowing and working with. He doesn't just talk about personal development — he lives it every single day. Watching him grow, lead, and impact others has been truly inspiring. If you're looking for someone who will challenge you to step into your highest self, Carter is that person."</p>
+            <div class="testi-byline">
+              <img src="../Client results/jordanlmpp.png" alt="Jordan L.M." width="48" height="48" />
+              <div><div class="testi-name">Jordan L.M.</div><div class="testi-role">Carter's Mentor</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-controls">
+        <div class="testi-dots" id="testiDots"></div>
+        <div class="testi-arrows">
+          <button class="testi-arrow" id="testiPrev" aria-label="Previous testimonial">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="testi-arrow" id="testiNext" aria-label="Next testimonial">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var track = document.getElementById('testiTrack');
+        var cards = track.children;
+        var dotsWrap = document.getElementById('testiDots');
+        var i = 0;
+        for (var n = 0; n < cards.length; n++) {
+          var d = document.createElement('button');
+          d.className = 'testi-dot';
+          d.setAttribute('aria-label', 'Show testimonial ' + (n + 1));
+          d.addEventListener('click', (function(k) { return function() { go(k); }; })(n));
+          dotsWrap.appendChild(d);
+        }
+        function go(k) {
+          i = (k + cards.length) % cards.length;
+          track.style.transform = 'translateX(' + (-100 * i) + '%)';
+          for (var m = 0; m < dotsWrap.children.length; m++) {
+            dotsWrap.children[m].classList.toggle('active', m === i);
+          }
+        }
+        document.getElementById('testiPrev').addEventListener('click', function() { go(i - 1); });
+        document.getElementById('testiNext').addEventListener('click', function() { go(i + 1); });
+        // Swipe on touch devices
+        var startX = null;
+        track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', function(e) {
+          if (startX === null) return;
+          var dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+          startX = null;
+        });
+        go(0);
+      })();
+    </script>
 
     <div class="divider"></div>
 
