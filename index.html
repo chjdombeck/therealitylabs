@@ -426,7 +426,7 @@
     .iceberg-pct.gold { color: var(--gold); }
 
     .iceberg-name {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -435,11 +435,12 @@
     }
 
     .iceberg-desc {
-      font-size: 10px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.8);
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.04em;
-      color: var(--w40);
-      margin-top: 4px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 5px;
       line-height: 1.6;
     }
 
@@ -471,38 +472,6 @@
       text-transform: uppercase;
       color: var(--w40);
       margin-top: 6px;
-    }
-
-    /* ─── TICKER ─── */
-    .ticker {
-      overflow: hidden;
-      border-top: 1px solid var(--gold-line);
-      border-bottom: 1px solid var(--gold-line);
-      background: rgba(227,151,3,0.02);
-      padding: 15px 0;
-    }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: slide 38s linear infinite;
-    }
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      padding-right: 36px;
-      white-space: nowrap;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--w40);
-    }
-    .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
-    @keyframes slide {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
 
     /* ─── INTRO SPLIT ─── */
@@ -1276,7 +1245,7 @@
         height: 420px;
         position: relative;
       }
-      .hero-h1 { font-size: clamp(44px, 12vw, 72px); margin-bottom: 24px; }
+      .hero-h1 { font-size: clamp(32px, 10.8vw, 72px); margin-bottom: 24px; }
       .hero-sub { font-size: 15px; margin-bottom: 36px; }
       .iceberg-label.iceberg-above { top: 5%; right: 16px; }
       .iceberg-label.iceberg-below { bottom: 5%; right: 16px; }
@@ -1363,9 +1332,9 @@
       .iceberg-label.iceberg-above { top: 8%; right: 12px; }
       .iceberg-label.iceberg-below { bottom: 8%; right: 12px; }
       .iceberg-pct { font-size: 22px; }
-      .iceberg-label { max-width: 120px; }
-      .iceberg-name { font-size: 9px; letter-spacing: 0.08em; }
-      .iceberg-desc { font-size: 9px; }
+      .iceberg-label { max-width: 190px; }
+      .iceberg-name { font-size: 11px; letter-spacing: 0.08em; }
+      .iceberg-desc { font-size: 12px; }
 
       /* About — full-width tall portrait image */
       .about-body { grid-template-columns: 1fr; gap: 0; }
@@ -1459,12 +1428,11 @@
     <img src="LD Logo main.png" alt="" class="hero-watermark" aria-hidden="true" width="500" height="500" loading="lazy" />
 
     <div class="hero-left">
-      <div class="hero-eyebrow r">Subconscious Reprogramming for Entrepreneurs</div>
       <h1 class="hero-h1 r d1">
-        YOUR RESULTS<br/>ARE A<br/><span class="gold">SUBCONSCIOUS</span><br/><span class="gold">PROGRAM.</span>
+        METAPHYSICAL<br/>COACHING<br/><span class="gold">FOR</span><br/><span class="gold">ENTREPRENEURS.</span>
       </h1>
       <p class="hero-sub r d2">
-        Break through subconscious blocks to scale the business you love.
+        Break through subconscious blocks to build the business you love.
       </p>
       <div class="hero-ctas r d3">
         <a href="apply" class="btn btn-gold">Apply for Coaching &rarr;</a>
@@ -1493,26 +1461,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ══ TICKER ══ -->
-  <div class="ticker">
-    <div class="ticker-track">
-      <div class="ticker-item">
-        <span class="dot"></span>Reality creation is an inside job
-        <span class="dot"></span>Your results are a subconscious program
-        <span class="dot"></span>Reality agrees with you
-        <span class="dot"></span>Overqualified on paper, underqualified concept of self
-        <span class="dot"></span>
-      </div>
-      <div class="ticker-item">
-        <span class="dot"></span>Reality creation is an inside job
-        <span class="dot"></span>Your results are a subconscious program
-        <span class="dot"></span>Reality agrees with you
-        <span class="dot"></span>Overqualified on paper, underqualified concept of self
-        <span class="dot"></span>
-      </div>
-    </div>
-  </div>
 
   <!-- ══ VSL SECTION ══ -->
   <section style="background:#0d0d0d; padding: 80px 24px 80px; text-align:center;">
