@@ -596,21 +596,19 @@
     }
     .strip-word:hover { color: var(--w60); }
 
-    /* ─── JOURNEY GRID ─── */
-    .journey {
-      padding: 128px 56px 40px;
-      position: relative;
-      overflow: hidden;
+    /* ─── PROCESS HEADER ─── */
+    .process-head {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 128px 64px 72px;
     }
-    .journey-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 50% 60% at 100% 0%, rgba(227,151,3,0.04) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 60% at 0% 0%, rgba(227,151,3,0.04) 0%, transparent 55%);
-      pointer-events: none;
+    .process-head .section-title { margin-bottom: 20px; }
+    .process-head-sub {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--w60);
+      max-width: 560px;
     }
-    .journey-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
     .section-label {
       font-size: 10px;
       font-weight: 500;
@@ -633,44 +631,6 @@
       margin-bottom: 72px;
     }
     .section-title .gold { color: var(--gold); }
-
-    .journey-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--w08);
-      border: 1px solid var(--w08);
-    }
-
-    .journey-card {
-      background: var(--black);
-      padding: 44px 36px;
-      position: relative;
-      transition: background 0.3s ease;
-    }
-    .journey-card:hover { background: var(--s2); }
-
-    .journey-card-num {
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-    .journey-bar { width: 10px; height: 10px; border: 1px solid var(--gold); border-radius: 50%; margin-bottom: 20px; }
-    .journey-card-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 14px;
-    }
-    .journey-card-desc {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--w60);
-    }
 
     /* ─── SERVICE ROWS ─── */
     .service-row {
@@ -1263,9 +1223,8 @@
       .strip-center-label { padding: 0 32px; }
       .strip-center-label::before, .strip-center-label::after { display: none; }
 
-      /* JOURNEY */
-      .journey { padding: 72px 24px; }
-      .journey-grid { grid-template-columns: 1fr; }
+      /* PROCESS HEADER */
+      .process-head { padding: 72px 24px 48px; }
       .section-title { margin-bottom: 48px; }
 
       /* SERVICE ROWS */
@@ -1385,7 +1344,7 @@
       /* Tighter section padding */
       .about-section { padding: 56px 20px; }
       .testi-section { padding: 56px 20px; }
-      .journey { padding: 56px 20px 28px; }
+      .process-head { padding: 56px 24px 40px; }
       .quote-break { padding: 34px 20px 96px; }
       .cta-section { padding: 72px 20px; }
 
@@ -1528,53 +1487,83 @@
     </div>
   </div>
 
-  <!-- ══ JOURNEY GRID (6-card) ══ -->
-  <section class="journey" id="method">
-    <div class="journey-bg"></div>
-    <div class="journey-inner">
+  <!-- ══ SERVICE ROWS ══ -->
+  <section id="process">
+
+    <div class="process-head" id="method">
       <div class="section-label r">This Is What Your Journey Looks Like</div>
       <h2 class="section-title r d1">
-        SIX LAYERS.<br/>ONE <span class="gold">NEW IDENTITY.</span>
+        THREE PHASES.<br/>ONE <span class="gold">NEW IDENTITY.</span>
       </h2>
-      <div class="journey-grid">
-        <div class="journey-card r">
-          <div class="journey-card-num">001 — Diagnosis</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Pattern Mapping</div>
-          <p class="journey-card-desc">We identify the specific subconscious programs that are producing your current ceiling. Precision, not guesswork.</p>
+      <p class="process-head-sub r d2">Every session is personalized: built around your specific identity, your specific patterns, and your specific next level.</p>
+    </div>
+
+    <!-- Row 1: Uncover -->
+    <div class="service-row">
+      <div class="service-row-inner">
+        <div class="service-img" style="background:#080808; display:flex; align-items:center; justify-content:center;">
+          <img src="trl1.png" alt="Phase 1 — Uncover" class="phase-mobile-img" loading="lazy">
+          <canvas id="entropy-canvas" style="display:block;"></canvas>
+          <div class="service-img-overlay"></div>
+          <div class="service-num-tag">01 — Uncover</div>
         </div>
-        <div class="journey-card r d1">
-          <div class="journey-card-num">002 — Root Cause</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Identity Archaeology</div>
-          <p class="journey-card-desc">We trace the root-level beliefs that formed your current identity: the ones running 95% of your behavior below conscious awareness.</p>
-        </div>
-        <div class="journey-card r d2">
-          <div class="journey-card-num">003 — Rewire</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Subconscious Reprogramming</div>
-          <p class="journey-card-desc">Using evidence-based techniques, we install the new identity your next level requires. Not motivation, but permanent rewiring.</p>
-        </div>
-        <div class="journey-card r">
-          <div class="journey-card-num">004 — Alignment</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Vision Integration</div>
-          <p class="journey-card-desc">Your subconscious ambition and your business vision get aligned at the root. Resistance dissolves. Growth becomes the natural state.</p>
-        </div>
-        <div class="journey-card r d1">
-          <div class="journey-card-num">005 — No Quick Shortcuts</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Foundational Change</div>
-          <p class="journey-card-desc">We don't give you "mindset advice" and send you on your way. We transform who you are, which means the results you create will be different permanently.</p>
-        </div>
-        <div class="journey-card r d2">
-          <div class="journey-card-num">006 — Partners</div>
-          <div class="journey-bar"></div>
-          <div class="journey-card-title">Partnership</div>
-          <p class="journey-card-desc">We create a partnership. Every session is personalized and built around your specific identity, your specific patterns, your specific next level.</p>
+        <div class="service-content r">
+          <div class="service-label">Phase One</div>
+          <div class="service-title">Uncover<br/>the Pattern</div>
+          <p class="service-desc">
+            Through in-depth 1:1 sessions, we map the subconscious patterns creating the ceiling you keep hitting.
+          </p>
+          <div>
+            <a href="apply" class="btn btn-gold">Start Here &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Row 2: Release (reversed) -->
+    <div class="service-row">
+      <div class="service-row-inner">
+        <div class="service-content r" style="background:var(--s2);">
+          <div class="service-label">Phase Two</div>
+          <div class="service-title">Release<br/>the Block</div>
+          <p class="service-desc">
+            We release the block uncovered in Phase One. Once it's gone, the decisions, actions, and results of your next level start to feel natural.
+          </p>
+          <div>
+            <a href="apply" class="btn btn-gold">Apply &rarr;</a>
+          </div>
+        </div>
+        <div class="service-img" id="phase2-img" style="background:#050505; overflow:hidden;">
+          <img src="trl2.png" alt="Phase 2 — Release" class="phase-mobile-img" loading="lazy">
+          <canvas id="phase2-flow" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
+          <div class="service-img-overlay" style="z-index:2;"></div>
+          <div class="service-num-tag" style="z-index:3;">02 — Release</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Embody -->
+    <div class="service-row">
+      <div class="service-row-inner">
+        <div class="service-img" id="phase3-img" style="background:#050505; overflow:hidden;">
+          <img src="trl3.png" alt="Phase 3 — Embody" class="phase-mobile-img" loading="lazy">
+          <canvas id="phase3-dots" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
+          <div class="service-img-overlay" style="z-index:2;"></div>
+          <div class="service-num-tag" style="z-index:3;">03 — Embody</div>
+        </div>
+        <div class="service-content r">
+          <div class="service-label">Phase Three</div>
+          <div class="service-title">Embody<br/>the Identity</div>
+          <p class="service-desc">
+            When your inner reality changes, your external reality follows. Together, we build the identity that matches your next level, so your results finally have room to catch up.
+          </p>
+          <div>
+            <a href="apply" class="btn btn-gold">Get Started &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ══ BIG QUOTE ══ -->
@@ -1586,77 +1575,6 @@
     </p>
     <div style="width:36px; height:1px; background:var(--gold); margin:64px auto 0;" class="r d2"></div>
   </div>
-
-  <!-- ══ SERVICE ROWS ══ -->
-  <section id="process">
-
-    <!-- Row 1: Identify -->
-    <div class="service-row">
-      <div class="service-row-inner">
-        <div class="service-img" style="background:#080808; display:flex; align-items:center; justify-content:center;">
-          <img src="trl1.png" alt="Phase 1 — Identify" class="phase-mobile-img" loading="lazy">
-          <canvas id="entropy-canvas" style="display:block;"></canvas>
-          <div class="service-img-overlay"></div>
-          <div class="service-num-tag">01 — Identify</div>
-        </div>
-        <div class="service-content r">
-          <div class="service-label">Phase One</div>
-          <div class="service-title">Uncover<br/>the Pattern</div>
-          <p class="service-desc">
-            We reveal the subconscious beliefs, identity, and programs running beneath the surface: the ones creating the ceiling you keep hitting, no matter what surface level strategy you try.
-          </p>
-          <div>
-            <a href="apply" class="btn btn-gold">Start Here &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row 2: Reprogram (reversed) -->
-    <div class="service-row">
-      <div class="service-row-inner">
-        <div class="service-content r" style="background:var(--s2);">
-          <div class="service-label">Phase Two</div>
-          <div class="service-title">Rewire<br/>the Root</div>
-          <p class="service-desc">
-            Uproot the issue: we don't just change your "mindset", we change who you are at the identity level. New identity means new defaults, new decisions, new results.
-          </p>
-          <div>
-            <a href="apply" class="btn btn-gold">Apply &rarr;</a>
-          </div>
-        </div>
-        <div class="service-img" id="phase2-img" style="background:#050505; overflow:hidden;">
-          <img src="trl2.png" alt="Phase 2 — Reprogram" class="phase-mobile-img" loading="lazy">
-          <canvas id="phase2-flow" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
-          <div class="service-img-overlay" style="z-index:2;"></div>
-          <div class="service-num-tag" style="z-index:3;">02 — Reprogram</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row 3: Align -->
-    <div class="service-row">
-      <div class="service-row-inner">
-        <div class="service-img" id="phase3-img" style="background:#050505; overflow:hidden;">
-          <img src="trl3.png" alt="Phase 3 — Align" class="phase-mobile-img" loading="lazy">
-          <canvas id="phase3-dots" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;"></canvas>
-          <div class="service-img-overlay" style="z-index:2;"></div>
-          <div class="service-num-tag" style="z-index:3;">03 — Integrate</div>
-        </div>
-        <div class="service-content r">
-          <div class="service-label">Phase Three</div>
-          <div class="service-title">Watch<br/>Reality Shift</div>
-          <p class="service-desc">
-            When your inner reality changes, your external reality follows. Decisions become clearer, action becomes intuitive, and achieving your goal will feel like a natural side effect.
-          </p>
-          <div>
-            <a href="apply" class="btn btn-gold">Get Started &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
 
   <!-- ══ TESTIMONIALS ══ -->
   <!-- ══ ABOUT ══ -->
