@@ -291,6 +291,39 @@
       color: var(--w60);
     }
 
+    /* ─── HOW IT WORKS ─── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .step {
+      border-top: 1px solid var(--gold-line);
+      padding-top: 20px;
+    }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--w60);
+    }
+
     /* ─── RESULTS / TESTIMONIALS ─── */
     .testi-slider { position: relative; margin-bottom: 80px; }
     .testi-viewport { overflow: hidden; border-radius: 12px; }
@@ -417,6 +450,7 @@
       .nav-logo { height: 50px; }
       .page-wrap { padding: 110px 20px 60px; }
       .program-included { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 24px; }
       .testi-card { padding: 32px 24px 28px; }
       .testi-card::before { left: 24px; }
       .testi-text { font-size: 15px; line-height: 1.75; margin-bottom: 24px; }
@@ -476,6 +510,29 @@
         <div class="program-card-top"><span class="program-card-num">04</span></div>
         <div class="program-card-title">24/7 Communication</div>
         <p class="program-card-desc">Direct message access to Carter in a private channel, anytime you need support.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <div class="section-label-sm">How it works</div>
+    <h2 class="program-title" style="margin-bottom:32px;">Uncover. Release. <span>Embody.</span></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Uncover</div>
+        <p class="step-desc">Map the subconscious pattern creating the ceiling you keep hitting.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Release</div>
+        <p class="step-desc">Release the block at the root, so it stops running your decisions.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Embody</div>
+        <p class="step-desc">Become the person that matches your next level, and let your results follow.</p>
       </div>
     </div>
 
