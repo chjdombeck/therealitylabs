@@ -443,6 +443,8 @@
       margin-top: 5px;
       line-height: 1.6;
     }
+    /* "Above / below the surface" tags show on tablet and mobile only */
+    .iceberg-zone { display: none; }
 
     /* Floating stat box */
     .hero-stat {
@@ -728,6 +730,28 @@
       width: 100%; height: 100%;
       background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(227,151,3,0.03) 0%, transparent 65%);
       pointer-events: none;
+    }
+
+    .phase-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-line);
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 0 0 6px rgba(227,151,3,0.04), 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .phase-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .service-label {
@@ -1214,9 +1238,34 @@
       }
       .hero-h1 { font-size: clamp(32px, 10.8vw, 72px); margin-bottom: 24px; }
       .hero-sub { font-size: 15px; margin-bottom: 36px; }
-      .iceberg-label.iceberg-above { top: 5%; right: 16px; }
-      .iceberg-label.iceberg-below { bottom: 5%; right: 16px; }
-      .iceberg-pct { font-size: 28px; }
+      /* Iceberg: taller crop so the waterline sits mid-frame, labels on dark cards */
+      .hero-right { height: min(125vw, 560px); }
+      .iceberg-label {
+        padding: 12px 16px 14px;
+        border-radius: 10px;
+        background: rgba(0,0,0,0.62);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        border: 1px solid var(--w12);
+        border-right: 2px solid rgba(255,255,255,0.85);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+      }
+      .iceberg-label.iceberg-below { border-color: var(--gold-line); border-right-color: var(--gold); }
+      .iceberg-zone {
+        display: block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--w60);
+        margin-bottom: 6px;
+      }
+      .iceberg-below .iceberg-zone { color: var(--gold); }
+      .iceberg-label.iceberg-above { top: 16px; right: 16px; }
+      .iceberg-label.iceberg-below { bottom: 16px; right: 16px; }
+      .iceberg-pct { font-size: 34px; }
+      .iceberg-name { font-size: 13px; }
+      .iceberg-desc { font-size: 14px; color: var(--w85); }
 
       /* INTRO */
       .intro-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1288,19 +1337,17 @@
 
     @media (max-width: 560px) {
       .beliefs-inner { grid-template-columns: 1fr; }
-      .hero-right { height: 300px; }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { width: 100%; justify-content: center; }
       .about-stats { gap: 20px; }
       .testi-card { padding: 28px 20px; }
 
       /* Hero iceberg labels */
-      .iceberg-label.iceberg-above { top: 8%; right: 12px; }
-      .iceberg-label.iceberg-below { bottom: 8%; right: 12px; }
-      .iceberg-pct { font-size: 22px; }
-      .iceberg-label { max-width: 190px; }
-      .iceberg-name { font-size: 11px; letter-spacing: 0.08em; }
-      .iceberg-desc { font-size: 12px; }
+      .iceberg-label.iceberg-above { top: 12px; right: 12px; }
+      .iceberg-label.iceberg-below { bottom: 12px; right: 12px; }
+      .iceberg-pct { font-size: 30px; }
+      .iceberg-name { font-size: 12px; letter-spacing: 0.1em; }
+      .iceberg-desc { font-size: 13px; }
 
       /* About — full-width tall portrait image */
       .about-body { grid-template-columns: 1fr; gap: 0; }
@@ -1413,6 +1460,7 @@
 
         <!-- Above waterline label -->
         <div class="iceberg-label iceberg-above">
+          <div class="iceberg-zone">Above the surface</div>
           <div class="iceberg-pct">5%</div>
           <div class="iceberg-name">Conscious Mind</div>
           <div class="iceberg-desc">Thoughts, decisions, effort</div>
@@ -1420,6 +1468,7 @@
 
         <!-- Below waterline label -->
         <div class="iceberg-label iceberg-below">
+          <div class="iceberg-zone">Below the surface</div>
           <div class="iceberg-pct gold">95%</div>
           <div class="iceberg-name">Subconscious Mind</div>
           <div class="iceberg-desc">Identity, beliefs, autopilot</div>
@@ -1515,6 +1564,7 @@
           <div class="service-num-tag">01 — Uncover</div>
         </div>
         <div class="service-content r">
+          <span class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/><path d="M12 21 8 9l4-6 4 6-4 12"/></svg></span>
           <div class="service-label">Phase One</div>
           <div class="service-title">Uncover<br/>the Pattern</div>
           <p class="service-desc">
@@ -1531,6 +1581,7 @@
     <div class="service-row">
       <div class="service-row-inner">
         <div class="service-content r" style="background:var(--s2);">
+          <span class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/><path d="M12 15v2"/></svg></span>
           <div class="service-label">Phase Two</div>
           <div class="service-title">Release<br/>the Block</div>
           <p class="service-desc">
@@ -1559,6 +1610,7 @@
           <div class="service-num-tag" style="z-index:3;">03 — Embody</div>
         </div>
         <div class="service-content r">
+          <span class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
           <div class="service-label">Phase Three</div>
           <div class="service-title">Embody<br/>the Identity</div>
           <p class="service-desc">
@@ -1656,22 +1708,22 @@
       <div class="testi-marquee-track">
         <!-- Original set -->
         <div class="testi-card">
-          <p class="testi-text">"Had a life changing call with Carter Dombeck. He helped me understand an identity that I've had within myself that's been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."</p>
-          <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
-            <img src="Client results/juanpp.jpg" alt="Juan F." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
-            <div>
-              <div class="testi-name">Juan F.</div>
-              <div class="testi-role">Sales Professional</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
           <p class="testi-text">"Before working together, I felt stuck. Even though I had built a 7-figure business, I lacked clarity on what was next and felt trapped in a constant hustle mentality. Over the past four months of working with Carter, I have let go of old patterns and stepped into a new direction. Now, I'm creating content around consciousness and mental health and building a business rooted in a deeper purpose."</p>
           <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
             <img src="Client results/justinhpp.png" alt="Justin H." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
             <div>
               <div class="testi-name">Justin H.</div>
               <div class="testi-role">7-Figure Entrepreneur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p class="testi-text">"Had a life changing call with Carter Dombeck. He helped me understand an identity that I've had within myself that's been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."</p>
+          <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
+            <img src="Client results/juanpp.jpg" alt="Juan F." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
+            <div>
+              <div class="testi-name">Juan F.</div>
+              <div class="testi-role">Sales Professional</div>
             </div>
           </div>
         </div>
@@ -1707,22 +1759,22 @@
         </div>
         <!-- Duplicate set for seamless loop -->
         <div class="testi-card">
-          <p class="testi-text">"Had a life changing call with Carter Dombeck. He helped me understand an identity that I've had within myself that's been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."</p>
-          <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
-            <img src="Client results/juanpp.jpg" alt="Juan F." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
-            <div>
-              <div class="testi-name">Juan F.</div>
-              <div class="testi-role">Sales Professional</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
           <p class="testi-text">"Before working together, I felt stuck. Even though I had built a 7-figure business, I lacked clarity on what was next and felt trapped in a constant hustle mentality. Over the past four months of working with Carter, I have let go of old patterns and stepped into a new direction. Now, I'm creating content around consciousness and mental health and building a business rooted in a deeper purpose."</p>
           <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
             <img src="Client results/justinhpp.png" alt="Justin H." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
             <div>
               <div class="testi-name">Justin H.</div>
               <div class="testi-role">7-Figure Entrepreneur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p class="testi-text">"Had a life changing call with Carter Dombeck. He helped me understand an identity that I've had within myself that's been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."</p>
+          <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
+            <img src="Client results/juanpp.jpg" alt="Juan F." loading="lazy" width="46" height="46" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-line); flex-shrink:0;" />
+            <div>
+              <div class="testi-name">Juan F.</div>
+              <div class="testi-role">Sales Professional</div>
             </div>
           </div>
         </div>
@@ -2211,8 +2263,8 @@
       if (window.innerWidth > 960) return;
       var wrap = document.querySelector('.testi-marquee-wrap');
       var testimonials = [
-        { text: '"Had a life changing call with Carter Dombeck. He helped me understand an identity that I\'ve had within myself that\'s been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."', name: 'Juan F.', role: 'Sales Professional', avatar: 'Client results/juanpp.jpg' },
         { text: '"Before working together, I felt stuck. Even though I had built a 7-figure business, I lacked clarity on what was next and felt trapped in a constant hustle mentality. Over the past four months of working with Carter, I have let go of old patterns and stepped into a new direction. Now, I\'m creating content around consciousness and mental health and building a business rooted in a deeper purpose."', name: 'Justin H.', role: '7-Figure Entrepreneur', avatar: 'Client results/justinhpp.png' },
+        { text: '"Had a life changing call with Carter Dombeck. He helped me understand an identity that I\'ve had within myself that\'s been holding me back from my potential. Thank you brother for all that you do and all that you are. Gratitude."', name: 'Juan F.', role: 'Sales Professional', avatar: 'Client results/juanpp.jpg' },
         { text: '"Your videos have really helped me grow in my musical journey. It\'s great."', name: 'Oriana C.', role: 'Musician', avatar: 'Client results/oripp.jpg' },
         { text: '"Carter\'s content has had a real impact on me. You can tell he genuinely cares about helping people break through what\'s holding them back. His consistency and work ethic are on another level, and it shows in everything he puts out. He shows up every day with purpose and actually lives what he talks about. That kind of discipline and intention is rare, and it\'s genuinely inspiring to watch."', name: 'Easton G.', role: 'Digital Entrepreneur', avatar: 'Client results/eastonpp.jpg' },
         { text: '"Carter is one of the most genuine, intentional people I\'ve had the pleasure of knowing and working with. He doesn\'t just talk about personal development — he lives it every single day. Watching him grow, lead, and impact others has been truly inspiring. If you\'re looking for someone who will challenge you to step into your highest self, Carter is that person."', name: 'Jordan L.M.', role: 'Carter\'s Mentor', avatar: 'Client results/jordanlmpp.png' }
