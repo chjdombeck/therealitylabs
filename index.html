@@ -1281,7 +1281,12 @@
         margin-bottom: 6px;
       }
       .iceberg-below .iceberg-zone { color: var(--gold); }
-      .iceberg-label.iceberg-above { top: 16px; right: 16px; }
+      .iceberg-label.iceberg-above {
+        top: 16px; left: 16px; right: auto;
+        text-align: left;
+        border-right: 1px solid var(--w12);
+        border-left: 2px solid rgba(255,255,255,0.85);
+      }
       .iceberg-label.iceberg-below { bottom: 16px; right: 16px; }
       .iceberg-pct { font-size: 34px; }
       .iceberg-name { font-size: 13px; }
@@ -1363,7 +1368,7 @@
       .testi-card { padding: 28px 20px; }
 
       /* Hero iceberg labels */
-      .iceberg-label.iceberg-above { top: 12px; right: 12px; }
+      .iceberg-label.iceberg-above { top: 12px; left: 12px; right: auto; }
       .iceberg-label.iceberg-below { bottom: 12px; right: 12px; }
       .iceberg-pct { font-size: 26px; }
       .iceberg-name { font-size: 12px; letter-spacing: 0.1em; }
