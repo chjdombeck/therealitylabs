@@ -406,9 +406,12 @@
       pointer-events: none;
     }
 
-    /* Top label mirrors the bottom label's 8% spacing as closely as the peak allows */
+    /* Top label sits top-left, mirroring the bottom label's 8% spacing */
     .iceberg-above {
-      top: 7.5%;
+      top: 8%;
+      left: 28px;
+      right: auto;
+      text-align: left;
     }
 
     /* Narrower desktops: the panel is slimmer and the peak sits higher, so lift the label clear */
