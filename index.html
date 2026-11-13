@@ -595,6 +595,13 @@
       transition: color 0.2s ease;
     }
     .strip-word:hover { color: var(--w60); }
+    /* Stack the strip below wide desktop so the longer labels never overflow */
+    @media (max-width: 1240px) {
+      .logo-strip-trusted-line { flex-direction: column; gap: 20px; }
+      .strip-side { flex: unset; justify-content: center !important; padding: 0 !important; }
+      .strip-center-label { padding: 0 32px; }
+      .strip-center-label::before, .strip-center-label::after { display: none; }
+    }
 
     /* ─── PROCESS HEADER ─── */
     .process-head {
@@ -1364,7 +1371,7 @@
     <a href="#process" onclick="closeMobileMenu()">Process</a>
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#results" onclick="closeMobileMenu()">Results</a>
-    <a href="apply" class="btn btn-gold" onclick="closeMobileMenu()">Apply for Coaching</a>
+    <a href="apply" class="btn btn-gold" onclick="closeMobileMenu()">Book Free Intro Call</a>
   </div>
 
   <!-- ══ NAV ══ -->
@@ -1375,7 +1382,7 @@
       <a href="#about">About</a>
       <a href="#results">Results</a>
     </div>
-    <div class="nav-cta"><a href="apply" class="btn btn-gold">Apply for Coaching</a></div>
+    <div class="nav-cta"><a href="apply" class="btn btn-gold">Book Free Intro Call</a></div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -1394,7 +1401,7 @@
         Break through subconscious blocks to build the business you love.
       </p>
       <div class="hero-ctas r d3">
-        <a href="apply" class="btn btn-gold">Apply for Coaching &rarr;</a>
+        <a href="apply" class="btn btn-gold">Book Free Intro Call &rarr;</a>
         <a href="#method" class="btn btn-outline">See the Method</a>
       </div>
     </div>
@@ -1461,7 +1468,7 @@
           Most coaching works at the surface. Strategy, habits, accountability. Useful, but if your subconscious mind is programmed to stay small, <strong>those tools hit an invisible ceiling.</strong>
         </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="apply" class="btn btn-gold">Apply Now &rarr;</a>
+          <a href="apply" class="btn btn-gold">Book Free Intro Call &rarr;</a>
           <a href="#method" class="btn btn-outline">Learn More</a>
         </div>
       </div>
@@ -1474,7 +1481,7 @@
       <div class="strip-side">
         <span class="strip-word">Agency Owners</span>
         <span class="strip-dot">·</span>
-        <span class="strip-word">Sales Reps</span>
+        <span class="strip-word">Sales Professionals</span>
       </div>
       <div class="strip-center-label">
         <span class="logo-strip-label">Trusted by Entrepreneurs</span>
@@ -1514,7 +1521,7 @@
             Through in-depth 1:1 sessions, we map the subconscious patterns creating the ceiling you keep hitting.
           </p>
           <div>
-            <a href="apply" class="btn btn-gold">Start Here &rarr;</a>
+            <a href="apply" class="btn btn-gold">Book Free Intro Call &rarr;</a>
           </div>
         </div>
       </div>
@@ -1530,7 +1537,7 @@
             We release the block uncovered in Phase One. Once it's gone, the decisions, actions, and results of your next level start to feel natural.
           </p>
           <div>
-            <a href="apply" class="btn btn-gold">Apply &rarr;</a>
+            <a href="apply" class="btn btn-gold">Book Free Intro Call &rarr;</a>
           </div>
         </div>
         <div class="service-img" id="phase2-img" style="background:#050505; overflow:hidden;">
@@ -1558,7 +1565,7 @@
             When your inner reality changes, your external reality follows. Together, we build the identity that matches your next level, so your results finally have room to catch up.
           </p>
           <div>
-            <a href="apply" class="btn btn-gold">Get Started &rarr;</a>
+            <a href="apply" class="btn btn-gold">Book Free Intro Call &rarr;</a>
           </div>
         </div>
       </div>
@@ -1766,10 +1773,10 @@
         Unlock the next level of business.
       </p>
       <div class="r d3">
-        <a href="apply" class="btn btn-gold" style="padding: 0 44px; height: 48px; font-size: 14px;">Apply for Coaching &rarr;</a>
+        <a href="apply" class="btn btn-gold" style="padding: 0 44px; height: 48px; font-size: 14px;">Book Free Intro Call &rarr;</a>
       </div>
       <p class="r d4" style="margin-top:24px; font-size:10px; color:var(--w25); letter-spacing:0.16em; text-transform:uppercase;">
-        Limited spots &nbsp;·&nbsp; Application required
+        Free intro call
       </p>
     </div>
   </section>
