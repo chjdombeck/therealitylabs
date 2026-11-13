@@ -406,12 +406,16 @@
       pointer-events: none;
     }
 
+    /* Top label mirrors the bottom label's 8% spacing as closely as the peak allows */
     .iceberg-above {
-      top: 4%;
+      top: 7.5%;
     }
 
-    /* Narrow desktop: the panel is slimmer, so lift the top label clear of the peak */
+    /* Narrower desktops: the panel is slimmer and the peak sits higher, so lift the label clear */
     @media (min-width: 961px) and (max-width: 1280px) {
+      .iceberg-above { top: 4%; }
+    }
+    @media (min-width: 961px) and (max-width: 1180px) {
       .iceberg-above { top: 1.5%; }
     }
 
