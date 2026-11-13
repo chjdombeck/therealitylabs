@@ -443,8 +443,27 @@
       margin-top: 5px;
       line-height: 1.6;
     }
-    /* "Above / below the surface" tags show on tablet and mobile only */
-    .iceberg-zone { display: none; }
+    /* "Above / below the surface" tags */
+    .iceberg-zone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--w60);
+      margin-bottom: 10px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+    }
+    .iceberg-zone::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+    .iceberg-below .iceberg-zone { color: var(--gold); }
 
     /* Floating stat box */
     .hero-stat {
